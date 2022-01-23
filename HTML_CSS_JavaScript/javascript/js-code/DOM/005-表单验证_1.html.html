@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>表单验证</title>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.onload = function () {
+            // 验证用户名
+            //拿到usernameElt文本框
+		    let usernameElt = document.getElementById("username");
+            // 在右侧span中提示信息。拿到usernameinfoElt框
+            let usernameinfoElt = document.getElementById("usernameinfo");
+            // 给用户名文本框绑定onblur事件
+            usernameElt.onblur = function(){
+                // 拿到用户名的输入值
+                let username = usernameElt.value;
+                console.log(username);
+                // 去除空白
+            }
+        }
+    </script>
+    <form id="userForm" action="http://localhost:8080/jd/save" method="get">
+        <table border="">
+            <tr>
+                <th>用户名</th>
+                <th><input type="text" name="username" id="username" value="" /></th>
+                <th><span id="usernameinfo"></span></th>
+            </tr>
+
+            <tr>
+                <th>密码</th>
+                <th><input type="password" name="password" id="password" value="" /></th>
+            </tr>
+
+            <tr>
+                <th>确认密码</th>
+                <th><input type="password" id="password2" value="" /></th>
+                <th><span id="password2info"></span></th>
+            </tr>
+
+            <tr>
+                <th>邮箱</th>
+                <th><input type="text" name="email" id="email" value="" /></th>
+                <th><span id="emailinfo"></span></th>
+            </tr>
+
+            <tr>
+                <th><input type="reset" name="" id="reset" value="重置" /></th>
+
+                <th><input type="button" name="" id="submitBtn" value="注册" /></th>
+            </tr>
+            <span id="Info"></span>
+        </table>
+    </form>
+</body>
+
+</html>
