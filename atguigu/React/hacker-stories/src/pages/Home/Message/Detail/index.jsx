@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import qs from 'qs'
 
 const data = [
     {id: '01', content: '你好中国'},
@@ -9,7 +10,9 @@ const data = [
 export default class Detail extends Component {
   render() {
       console.log(this.props)
-      const {id, title} = this.props.match.params
+      const {search} = this.props.location
+      const {id, title} = qs.parse(search.slice(1))
+      console.log(id, title)
       const findResult = data.find((obj) => {
           return obj.id === id
       })
