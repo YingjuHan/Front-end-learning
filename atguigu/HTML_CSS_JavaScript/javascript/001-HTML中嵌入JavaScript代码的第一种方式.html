@@ -1,48 +1,48 @@
 <!doctype html>
 <html>
-	<head>
-		<title>HTMLÖÐÇ¶ÈëJS´úÂëµÄµÚÒ»ÖÖ·½Ê½</title>
-	</head>
-	<body>
-		
-		<!--
-			1¡¢ÒªÊµÏÖµÄ¹¦ÄÜ£º
-				ÓÃ»§µã»÷ÒÔÏÂ°´Å¥£¬µ¯³öÏûÏ¢¿ò¡£
+<head>
+    <title>HTMLï¿½ï¿½Ç¶ï¿½ï¿½JSï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½Ö·ï¿½Ê½</title>
+</head>
+<body>
 
-			2¡¢JSÊÇÒ»ÃÅÊÂ¼þÇý¶¯ÐÍµÄ±à³ÌÓïÑÔ£¬ÒÀ¿¿ÊÂ¼þÈ¥Çý¶¯£¬È»ºóÖ´ÐÐ¶ÔÓ¦µÄ³ÌÐò¡£
-			ÔÚJSÖÐÓÐºÜ¶àÊÂ¼þ£¬ÆäÖÐÓÐÒ»¸öÊÂ¼þ½Ð×ö£ºÊó±êµ¥»÷£¬µ¥´Ê£ºclick¡£²¢ÇÒÈÎºÎ
-			ÊÂ¼þ¶¼»á¶ÔÓ¦Ò»¸öÊÂ¼þ¾ä±ú½Ð×ö£ºonclick¡£¡¾×¢Òâ£ºÊÂ¼þºÍÊÂ¼þ¾ä±úµÄÇø±ðÊÇ£º
-			ÊÂ¼þ¾ä±úÊÇÔÚÊÂ¼þµ¥´ÊÇ°Ìí¼ÓÒ»¸öon¡£¡¿£¬¶øÊÂ¼þ¾ä±úÊÇÒÔHTML±êÇ©µÄÊôÐÔ´æÔÚ
-			µÄ¡£
+<!--
+    1ï¿½ï¿½ÒªÊµï¿½ÖµÄ¹ï¿½ï¿½Ü£ï¿½
+        ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 
-			3¡¢onclick="js´úÂë"£¬Ö´ÐÐÔ­ÀíÊÇÊ²Ã´£¿
-				Ò³Ãæ´ò¿ªµÄÊ±ºò£¬js´úÂë²¢²»»áÖ´ÐÐ£¬Ö»ÊÇ°ÑÕâ¶ÎJS´úÂë×¢²áµ½°´Å¥µÄclickÊÂ¼þÉÏÁË¡£
-				µÈÕâ¸ö°´Å¥·¢ÉúclickÊÂ¼þÖ®ºó£¬×¢²áÔÚonclickºóÃæµÄjs´úÂë»á±»ä¯ÀÀÆ÷×Ô¶¯µ÷ÓÃ¡£
-			
-			4¡¢ÔõÃ´Ê¹ÓÃJS´úÂëµ¯³öÏûÏ¢¿ò£¿
-				ÔÚJSÖÐÓÐÒ»¸öÄÚÖÃµÄ¶ÔÏó½Ð×öwindow£¬È«²¿Ð¡Ð´£¬¿ÉÒÔÖ±½ÓÄÃÀ´Ê¹ÓÃ£¬window´ú±íµÄÊÇä¯ÀÀÆ÷¶ÔÏó¡£
-				window¶ÔÏóÓÐÒ»¸öº¯Êý½Ð×ö:alert£¬ÓÃ·¨ÊÇ£ºwindow.alert("ÏûÏ¢");ÕâÑù¾Í¿ÉÒÔµ¯´°ÁË¡£
-			
-			5¡¢JSÖÐµÄ×Ö·û´®¿ÉÒÔÊ¹ÓÃË«ÒýºÅ£¬Ò²¿ÉÒÔÊ¹ÓÃµ¥ÒýºÅ¡£
+    2ï¿½ï¿½JSï¿½ï¿½Ò»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½Ö´ï¿½Ð¶ï¿½Ó¦ï¿½Ä³ï¿½ï¿½ï¿½
+    ï¿½ï¿½JSï¿½ï¿½ï¿½ÐºÜ¶ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½êµ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½clickï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½
+    ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦Ò»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½onclickï¿½ï¿½ï¿½ï¿½×¢ï¿½â£ºï¿½Â¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç£ï¿½
+    ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ò»ï¿½ï¿½onï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HTMLï¿½ï¿½Ç©ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½
+    ï¿½Ä¡ï¿½
 
-			6¡¢JSÖÐµÄÒ»ÌõÓï¾ä½áÊøÖ®ºó¿ÉÒÔÊ¹ÓÃ·ÖºÅ¡°;¡±£¬Ò²¿ÉÒÔ²»ÓÃ¡£
-		-->
-		<input type="button" value="hello" onclick="window.alert('hello js')"/>
+    3ï¿½ï¿½onclick="jsï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½Ö´ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½
+        Ò³ï¿½ï¿½ò¿ªµï¿½Ê±ï¿½ï¿½jsï¿½ï¿½ï¿½ë²¢ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð£ï¿½Ö»ï¿½Ç°ï¿½ï¿½ï¿½ï¿½JSï¿½ï¿½ï¿½ï¿½×¢ï¿½áµ½ï¿½ï¿½Å¥ï¿½ï¿½clickï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
+        ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½clickï¿½Â¼ï¿½Ö®ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½onclickï¿½ï¿½ï¿½ï¿½ï¿½jsï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½
 
-		<input type="button" value="hello" onclick='window.alert("hello jscode")'/>
+    4ï¿½ï¿½ï¿½ï¿½Ã´Ê¹ï¿½ï¿½JSï¿½ï¿½ï¿½ëµ¯ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
+        ï¿½ï¿½JSï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ÃµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½windowï¿½ï¿½È«ï¿½ï¿½Ð¡Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã£ï¿½windowï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        windowï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:alertï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ç£ï¿½window.alert("ï¿½ï¿½Ï¢");ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
 
-		<input type="button" value="hello" onclick="window.alert('hello zhangsan')
+    5ï¿½ï¿½JSï¿½Ðµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ë«ï¿½ï¿½ï¿½Å£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½ï¿½ï¿½ï¿½Å¡ï¿½
+
+    6ï¿½ï¿½JSï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã·ÖºÅ¡ï¿½;ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Ã¡ï¿½
+-->
+<input type="button" value="hello" onclick="window.alert('hello js')"/>
+
+<input type="button" value="hello" onclick='window.alert("hello jscode")'/>
+
+<input type="button" value="hello" onclick="window.alert('hello zhangsan')
 													window.alert('hello lis')
 													window.alert('hello wangwu')"/>
-		
-		<!-- window. ¿ÉÒÔÊ¡ÂÔ¡£-->
-		<input type="button" value="hello" onclick="alert('hello zhangsan')
+
+<!-- window. ï¿½ï¿½ï¿½ï¿½Ê¡ï¿½Ô¡ï¿½-->
+<input type="button" value="hello" onclick="alert('hello zhangsan')
 													alert('hello lis')
 													alert('hello wangwu')"/>
-		
-		<input type="button" value="hello" onclick="alert('hello zhangsan');
+
+<input type="button" value="hello" onclick="alert('hello zhangsan');
 													alert('hello lis');
 													alert('hello wangwu');"/>
 
-	</body>
+</body>
 </html>

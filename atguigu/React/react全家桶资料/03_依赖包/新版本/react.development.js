@@ -8,9 +8,10 @@
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = global || self, factory(global.React = {}));
-}(this, (function (exports) { 'use strict';
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+      (global = global || self, factory(global.React = {}));
+}(this, (function (exports) {
+  'use strict';
 
   // TODO: this is special because it gets imported during build.
   var ReactVersion = '17.0.1';
@@ -67,6 +68,7 @@
 
   var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
   var FAUX_ITERATOR_SYMBOL = '@@iterator';
+
   function getIteratorFn(maybeIterable) {
     if (maybeIterable === null || typeof maybeIterable !== 'object') {
       return null;
@@ -144,6 +146,7 @@
 
   var ReactDebugCurrentFrame = {};
   var currentExtraStackFrame = null;
+
   function setExtraStackFrame(stack) {
     {
       currentExtraStackFrame = stack;
@@ -212,6 +215,7 @@
       printWarning('warn', format, args);
     }
   }
+
   function error(format) {
     {
       for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
@@ -252,17 +256,18 @@
     {
       var _constructor = publicInstance.constructor;
       var componentName = _constructor && (_constructor.displayName || _constructor.name) || 'ReactClass';
-      var warningKey = componentName + "." + callerName;
+      var warningKey = componentName + '.' + callerName;
 
       if (didWarnStateUpdateForUnmountedComponent[warningKey]) {
         return;
       }
 
-      error("Can't call %s on a component that is not yet mounted. " + 'This is a no-op, but it might indicate a bug in your application. ' + 'Instead, assign to `this.state` directly or define a `state = {};` ' + 'class property with the desired state in the %s component.', callerName, componentName);
+      error('Can\'t call %s on a component that is not yet mounted. ' + 'This is a no-op, but it might indicate a bug in your application. ' + 'Instead, assign to `this.state` directly or define a `state = {};` ' + 'class property with the desired state in the %s component.', callerName, componentName);
 
       didWarnStateUpdateForUnmountedComponent[warningKey] = true;
     }
   }
+
   /**
    * This is the abstract API for an update queue.
    */
@@ -338,6 +343,7 @@
   {
     Object.freeze(emptyObject);
   }
+
   /**
    * Base class helpers for the updating state of a component.
    */
@@ -383,7 +389,7 @@
   Component.prototype.setState = function (partialState, callback) {
     if (!(typeof partialState === 'object' || typeof partialState === 'function' || partialState == null)) {
       {
-        throw Error( "setState(...): takes an object of state variables to update or a function which returns an object of state variables." );
+        throw Error('setState(...): takes an object of state variables to update or a function which returns an object of state variables.');
       }
     }
 
@@ -438,9 +444,11 @@
     }
   }
 
-  function ComponentDummy() {}
+  function ComponentDummy() {
+  }
 
   ComponentDummy.prototype = Component.prototype;
+
   /**
    * Convenience component with default shallow equality check for sCU.
    */
@@ -475,7 +483,7 @@
 
   function getWrappedName(outerType, innerType, wrapperName) {
     var functionName = innerType.displayName || innerType.name || '';
-    return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+    return outerType.displayName || (functionName !== '' ? wrapperName + '(' + functionName + ')' : wrapperName);
   }
 
   function getContextName(type) {
@@ -541,18 +549,17 @@
         case REACT_BLOCK_TYPE:
           return getComponentName(type._render);
 
-        case REACT_LAZY_TYPE:
-          {
-            var lazyComponent = type;
-            var payload = lazyComponent._payload;
-            var init = lazyComponent._init;
+        case REACT_LAZY_TYPE: {
+          var lazyComponent = type;
+          var payload = lazyComponent._payload;
+          var init = lazyComponent._init;
 
-            try {
-              return getComponentName(init(payload));
-            } catch (x) {
-              return null;
-            }
+          try {
+            return getComponentName(init(payload));
+          } catch (x) {
+            return null;
           }
+        }
       }
     }
 
@@ -649,6 +656,7 @@
       }
     }
   }
+
   /**
    * Factory method to create a new React element. This no longer adheres to
    * the class pattern, so do not use new to call it. Also, instanceof check
@@ -724,6 +732,7 @@
 
     return element;
   };
+
   /**
    * Create and return a new ReactElement of the given type.
    * See https://reactjs.org/docs/react-api.html#createelement
@@ -810,10 +819,12 @@
 
     return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
   }
+
   function cloneAndReplaceKey(oldElement, newKey) {
     var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
     return newElement;
   }
+
   /**
    * Clone and return a new ReactElement using element as the starting point.
    * See https://reactjs.org/docs/react-api.html#cloneelement
@@ -822,7 +833,7 @@
   function cloneElement(element, config, children) {
     if (!!(element === null || element === undefined)) {
       {
-        throw Error( "React.cloneElement(...): The argument must be a React element, but you passed " + element + "." );
+        throw Error('React.cloneElement(...): The argument must be a React element, but you passed ' + element + '.');
       }
     }
 
@@ -890,6 +901,7 @@
 
     return ReactElement(element.type, key, ref, self, source, owner, props);
   }
+
   /**
    * Verifies the object is a ReactElement.
    * See https://reactjs.org/docs/react-api.html#isvalidelement
@@ -904,6 +916,7 @@
 
   var SEPARATOR = '.';
   var SUBSEPARATOR = ':';
+
   /**
    * Escape and wrap key so it is safe to use as a reactid
    *
@@ -922,6 +935,7 @@
     });
     return '$' + escapedString;
   }
+
   /**
    * TODO: Test that a single child and an array with one item have the same key
    * pattern.
@@ -934,6 +948,7 @@
   function escapeUserProvidedKey(text) {
     return text.replace(userProvidedKeyEscapeRegex, '$&/');
   }
+
   /**
    * Generate a key string that identifies a element within a set.
    *
@@ -1004,10 +1019,10 @@
       } else if (mappedChild != null) {
         if (isValidElement(mappedChild)) {
           mappedChild = cloneAndReplaceKey(mappedChild, // Keep both the (mapped) and old keys if they differ, just as
-          // traverseAllChildren used to do for objects as children
-          escapedPrefix + ( // $FlowFixMe Flow incorrectly thinks React.Portal doesn't have a key
-          mappedChild.key && (!_child || _child.key !== mappedChild.key) ? // $FlowFixMe Flow incorrectly thinks existing element's key can be a number
-          escapeUserProvidedKey('' + mappedChild.key) + '/' : '') + childKey);
+            // traverseAllChildren used to do for objects as children
+            escapedPrefix + ( // $FlowFixMe Flow incorrectly thinks React.Portal doesn't have a key
+              mappedChild.key && (!_child || _child.key !== mappedChild.key) ? // $FlowFixMe Flow incorrectly thinks existing element's key can be a number
+                escapeUserProvidedKey('' + mappedChild.key) + '/' : '') + childKey);
         }
 
         array.push(mappedChild);
@@ -1059,7 +1074,7 @@
 
         {
           {
-            throw Error( "Objects are not valid as a React child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + "). If you meant to render a collection of children, use an array instead." );
+            throw Error('Objects are not valid as a React child (found: ' + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + '). If you meant to render a collection of children, use an array instead.');
           }
         }
       }
@@ -1093,6 +1108,7 @@
     });
     return result;
   }
+
   /**
    * Count the number of children that are typically specified as
    * `props.children`.
@@ -1129,6 +1145,7 @@
       forEachFunc.apply(this, arguments); // Don't return anything.
     }, forEachContext);
   }
+
   /**
    * Flatten a children object (typically specified as `props.children`) and
    * return an array with appropriately re-keyed children.
@@ -1142,6 +1159,7 @@
       return child;
     }) || [];
   }
+
   /**
    * Returns the first child in a collection of children and verifies that there
    * is only one child in the collection.
@@ -1161,7 +1179,7 @@
   function onlyChild(children) {
     if (!isValidElement(children)) {
       {
-        throw Error( "React.Children.only expected to receive a single React element child." );
+        throw Error('React.Children.only expected to receive a single React element child.');
       }
     }
 
@@ -1270,7 +1288,7 @@
           },
           set: function (displayName) {
             if (!hasWarnedAboutDisplayNameOnConsumer) {
-              warn('Setting `displayName` on Context.Consumer has no effect. ' + "You should set it directly on the context with Context.displayName = '%s'.", displayName);
+              warn('Setting `displayName` on Context.Consumer has no effect. ' + 'You should set it directly on the context with Context.displayName = \'%s\'.', displayName);
 
               hasWarnedAboutDisplayNameOnConsumer = true;
             }
@@ -1309,7 +1327,7 @@
           {
             if (defaultExport === undefined) {
               error('lazy: Expected the result of a dynamic import() call. ' + 'Instead received: %s\n\nYour code should look like: \n  ' + // Break up imports to avoid accidentally parsing them as dependencies.
-              'const MyComponent = lazy(() => imp' + "ort('./MyComponent'))", moduleObject);
+                'const MyComponent = lazy(() => imp' + 'ort(\'./MyComponent\'))', moduleObject);
             }
           } // Transition to the next state.
 
@@ -1446,7 +1464,7 @@
     } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
 
 
-    if (type === exports.Fragment || type === exports.Profiler || type === REACT_DEBUG_TRACING_MODE_TYPE || type === exports.StrictMode || type === exports.Suspense || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI ) {
+    if (type === exports.Fragment || type === exports.Profiler || type === REACT_DEBUG_TRACING_MODE_TYPE || type === exports.StrictMode || type === exports.Suspense || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI) {
       return true;
     }
 
@@ -1498,7 +1516,7 @@
 
     if (!(dispatcher !== null)) {
       {
-        throw Error( "Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem." );
+        throw Error('Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for one of the following reasons:\n1. You might have mismatching versions of React and the renderer (such as React DOM)\n2. You might be breaking the Rules of Hooks\n3. You might have more than one copy of React in the same app\nSee https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.');
       }
     }
 
@@ -1528,38 +1546,47 @@
 
     return dispatcher.useContext(Context, unstable_observedBits);
   }
+
   function useState(initialState) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useState(initialState);
   }
+
   function useReducer(reducer, initialArg, init) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useReducer(reducer, initialArg, init);
   }
+
   function useRef(initialValue) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useRef(initialValue);
   }
+
   function useEffect(create, deps) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useEffect(create, deps);
   }
+
   function useLayoutEffect(create, deps) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useLayoutEffect(create, deps);
   }
+
   function useCallback(callback, deps) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useCallback(callback, deps);
   }
+
   function useMemo(create, deps) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useMemo(create, deps);
   }
+
   function useImperativeHandle(ref, create, deps) {
     var dispatcher = resolveDispatcher();
     return dispatcher.useImperativeHandle(ref, create, deps);
   }
+
   function useDebugValue(value, formatterFn) {
     {
       var dispatcher = resolveDispatcher();
@@ -1580,9 +1607,11 @@
   var prevGroupCollapsed;
   var prevGroupEnd;
 
-  function disabledLog() {}
+  function disabledLog() {
+  }
 
   disabledLog.__reactDisabledLog = true;
+
   function disableLogs() {
     {
       if (disabledDepth === 0) {
@@ -1617,6 +1646,7 @@
       disabledDepth++;
     }
   }
+
   function reenableLogs() {
     {
       disabledDepth--;
@@ -1663,6 +1693,7 @@
 
   var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher;
   var prefix;
+
   function describeBuiltInComponentFrame(name, source, ownerFn) {
     {
       if (prefix === undefined) {
@@ -1679,6 +1710,7 @@
       return '\n' + prefix + name;
     }
   }
+
   var reentry = false;
   var componentFrameCache;
 
@@ -1839,6 +1871,7 @@
 
     return syntheticFrame;
   }
+
   function describeFunctionComponentFrame(fn, source, ownerFn) {
     {
       return describeNativeComponentFrame(fn, false);
@@ -1886,17 +1919,17 @@
         case REACT_BLOCK_TYPE:
           return describeFunctionComponentFrame(type._render);
 
-        case REACT_LAZY_TYPE:
-          {
-            var lazyComponent = type;
-            var payload = lazyComponent._payload;
-            var init = lazyComponent._init;
+        case REACT_LAZY_TYPE: {
+          var lazyComponent = type;
+          var payload = lazyComponent._payload;
+          var init = lazyComponent._init;
 
-            try {
-              // Lazy may contain any component type so we recursively resolve it.
-              return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-            } catch (x) {}
+          try {
+            // Lazy may contain any component type so we recursively resolve it.
+            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+          } catch (x) {
           }
+        }
       }
     }
 
@@ -2013,6 +2046,7 @@
 
     return '';
   }
+
   /**
    * Warn if there's no key explicitly set on dynamic arrays of children or
    * object keys are not valid. This allows us to keep track of children between
@@ -2029,12 +2063,13 @@
       var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
 
       if (parentName) {
-        info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+        info = '\n\nCheck the top-level render call using <' + parentName + '>.';
       }
     }
 
     return info;
   }
+
   /**
    * Warn if the element doesn't have an explicit key assigned to it.
    * This element is in an array. The array could grow and shrink or be
@@ -2068,7 +2103,7 @@
 
     if (element && element._owner && element._owner !== ReactCurrentOwner.current) {
       // Give the component that originally created this child.
-      childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+      childOwner = ' It was passed a child from ' + getComponentName(element._owner.type) + '.';
     }
 
     {
@@ -2079,6 +2114,7 @@
       setCurrentlyValidatingElement$1(null);
     }
   }
+
   /**
    * Ensure that every element either is passed in a static location, in an
    * array with an explicit keys property defined, or in an object literal
@@ -2127,6 +2163,7 @@
       }
     }
   }
+
   /**
    * Given an element, validate that its props follow the propTypes definition,
    * provided by the type.
@@ -2148,8 +2185,8 @@
       if (typeof type === 'function') {
         propTypes = type.propTypes;
       } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
-      // Inner props are checked in the reconciler.
-      type.$$typeof === REACT_MEMO_TYPE)) {
+        // Inner props are checked in the reconciler.
+        type.$$typeof === REACT_MEMO_TYPE)) {
         propTypes = type.propTypes;
       } else {
         return;
@@ -2172,6 +2209,7 @@
       }
     }
   }
+
   /**
    * Given a fragment, validate that it can only be provided with fragment props
    * @param {ReactElement} fragment
@@ -2204,6 +2242,7 @@
       }
     }
   }
+
   function createElementWithValidation(type, props, children) {
     var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
     // succeed and there will likely be errors in render.
@@ -2212,7 +2251,7 @@
       var info = '';
 
       if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
-        info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+        info += ' You likely forgot to export your component from the file ' + 'it\'s defined in, or you might have mixed up default and named imports.';
       }
 
       var sourceInfo = getSourceInfoErrorAddendumForProps(props);
@@ -2230,7 +2269,7 @@
       } else if (Array.isArray(type)) {
         typeString = 'array';
       } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
-        typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+        typeString = '<' + (getComponentName(type.type) || 'Unknown') + ' />';
         info = ' Did you accidentally export a JSX literal instead of a component?';
       } else {
         typeString = typeof type;
@@ -2267,7 +2306,9 @@
 
     return element;
   }
+
   var didWarnAboutDeprecatedCreateFactory = false;
+
   function createFactoryWithValidation(type) {
     var validatedFactory = createElementWithValidation.bind(null, type);
     validatedFactory.type = type;
@@ -2295,6 +2336,7 @@
 
     return validatedFactory;
   }
+
   function cloneElementWithValidation(element, props, children) {
     var newElement = cloneElement.apply(this, arguments);
 
@@ -2334,9 +2376,9 @@
   }
 
   if ( // If Scheduler runs in a non-DOM environment, it falls back to a naive
-  // implementation using setTimeout.
-  typeof window === 'undefined' || // Check if MessageChannel is supported, too.
-  typeof MessageChannel !== 'function') {
+    // implementation using setTimeout.
+    typeof window === 'undefined' || // Check if MessageChannel is supported, too.
+    typeof MessageChannel !== 'function') {
     // If this accidentally gets imported in a non-browser environment, e.g. JavaScriptCore,
     // fallback to a naive implementation.
     var _callback = null;
@@ -2380,7 +2422,8 @@
       return false;
     };
 
-    requestPaint = forceFrameRate = function () {};
+    requestPaint = forceFrameRate = function () {
+    };
   } else {
     // Capture local references to native APIs, in case a polyfill overrides them.
     var _setTimeout = window.setTimeout;
@@ -2395,12 +2438,12 @@
 
       if (typeof requestAnimationFrame !== 'function') {
         // Using console['error'] to evade Babel and ESLint
-        console['error']("This browser doesn't support requestAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
+        console['error']('This browser doesn\'t support requestAnimationFrame. ' + 'Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
       }
 
       if (typeof cancelAnimationFrame !== 'function') {
         // Using console['error'] to evade Babel and ESLint
-        console['error']("This browser doesn't support cancelAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
+        console['error']('This browser doesn\'t support cancelAnimationFrame. ' + 'Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
       }
     }
 
@@ -2422,7 +2465,8 @@
       }; // Since we yield every frame regardless, `requestPaint` has no effect.
 
 
-      requestPaint = function () {};
+      requestPaint = function () {
+      };
     }
 
     forceFrameRate = function (fps) {
@@ -2502,10 +2546,12 @@
     heap.push(node);
     siftUp(heap, node, index);
   }
+
   function peek(heap) {
     var first = heap[0];
     return first === undefined ? null : first;
   }
+
   function pop(heap) {
     var first = heap[0];
 
@@ -2591,10 +2637,10 @@
   var mainThreadIdCounter = 0;
   var profilingStateSize = 4;
   var sharedProfilingBuffer =  // $FlowFixMe Flow doesn't know about SharedArrayBuffer
-  typeof SharedArrayBuffer === 'function' ? new SharedArrayBuffer(profilingStateSize * Int32Array.BYTES_PER_ELEMENT) : // $FlowFixMe Flow doesn't know about ArrayBuffer
-  typeof ArrayBuffer === 'function' ? new ArrayBuffer(profilingStateSize * Int32Array.BYTES_PER_ELEMENT) : null // Don't crash the init path on IE9
+    typeof SharedArrayBuffer === 'function' ? new SharedArrayBuffer(profilingStateSize * Int32Array.BYTES_PER_ELEMENT) : // $FlowFixMe Flow doesn't know about ArrayBuffer
+      typeof ArrayBuffer === 'function' ? new ArrayBuffer(profilingStateSize * Int32Array.BYTES_PER_ELEMENT) : null // Don't crash the init path on IE9
   ;
-  var profilingState =  sharedProfilingBuffer !== null ? new Int32Array(sharedProfilingBuffer) : []; // We can't read this but it helps save bytes for null checks
+  var profilingState = sharedProfilingBuffer !== null ? new Int32Array(sharedProfilingBuffer) : []; // We can't read this but it helps save bytes for null checks
 
   var PRIORITY = 0;
   var CURRENT_TASK_ID = 1;
@@ -2636,7 +2682,7 @@
 
         if (eventLogSize > MAX_EVENT_LOG_SIZE) {
           // Using console['error'] to evade Babel and ESLint
-          console['error']("Scheduler Profiling: Event log exceeded maximum size. Don't " + 'forget to call `stopLoggingProfilingEvents()`.');
+          console['error']('Scheduler Profiling: Event log exceeded maximum size. Don\'t ' + 'forget to call `stopLoggingProfilingEvents()`.');
           stopLoggingProfilingEvents();
           return;
         }
@@ -2657,6 +2703,7 @@
     eventLog = new Int32Array(eventLogBuffer);
     eventLogIndex = 0;
   }
+
   function stopLoggingProfilingEvents() {
     var buffer = eventLogBuffer;
     eventLogSize = 0;
@@ -2665,6 +2712,7 @@
     eventLogIndex = 0;
     return buffer;
   }
+
   function markTaskStart(task, ms) {
     {
       profilingState[QUEUE_SIZE]++;
@@ -2677,6 +2725,7 @@
       }
     }
   }
+
   function markTaskCompleted(task, ms) {
     {
       profilingState[PRIORITY] = NoPriority;
@@ -2688,6 +2737,7 @@
       }
     }
   }
+
   function markTaskCanceled(task, ms) {
     {
       profilingState[QUEUE_SIZE]--;
@@ -2697,6 +2747,7 @@
       }
     }
   }
+
   function markTaskErrored(task, ms) {
     {
       profilingState[PRIORITY] = NoPriority;
@@ -2708,6 +2759,7 @@
       }
     }
   }
+
   function markTaskRun(task, ms) {
     {
       runIdCounter++;
@@ -2720,6 +2772,7 @@
       }
     }
   }
+
   function markTaskYield(task, ms) {
     {
       profilingState[PRIORITY] = NoPriority;
@@ -2731,6 +2784,7 @@
       }
     }
   }
+
   function markSchedulerSuspended(ms) {
     {
       mainThreadIdCounter++;
@@ -2740,6 +2794,7 @@
       }
     }
   }
+
   function markSchedulerUnsuspended(ms) {
     {
       if (eventLog !== null) {
@@ -2870,7 +2925,7 @@
     advanceTimers(currentTime);
     currentTask = peek(taskQueue);
 
-    while (currentTask !== null && !(enableSchedulerDebugging )) {
+    while (currentTask !== null && !(enableSchedulerDebugging)) {
       if (currentTask.expirationTime > currentTime && (!hasTimeRemaining || shouldYieldToHost())) {
         // This currentTask hasn't expired, and we've reached the deadline.
         break;
@@ -3114,12 +3169,11 @@
   }
 
   var unstable_requestPaint = requestPaint;
-  var unstable_Profiling =  {
+  var unstable_Profiling = {
     startLoggingProfilingEvents: startLoggingProfilingEvents,
     stopLoggingProfilingEvents: stopLoggingProfilingEvents,
     sharedProfilingBuffer: sharedProfilingBuffer
-  } ;
-
+  };
 
 
   var Scheduler = /*#__PURE__*/Object.freeze({
@@ -3135,13 +3189,19 @@
     unstable_cancelCallback: unstable_cancelCallback,
     unstable_wrapCallback: unstable_wrapCallback,
     unstable_getCurrentPriorityLevel: unstable_getCurrentPriorityLevel,
-    get unstable_shouldYield () { return shouldYieldToHost; },
+    get unstable_shouldYield() {
+      return shouldYieldToHost;
+    },
     unstable_requestPaint: unstable_requestPaint,
     unstable_continueExecution: unstable_continueExecution,
     unstable_pauseExecution: unstable_pauseExecution,
     unstable_getFirstCallbackNode: unstable_getFirstCallbackNode,
-    get unstable_now () { return getCurrentTime; },
-    get unstable_forceFrameRate () { return forceFrameRate; },
+    get unstable_now() {
+      return getCurrentTime;
+    },
+    get unstable_forceFrameRate() {
+      return forceFrameRate;
+    },
     unstable_Profiling: unstable_Profiling
   });
 
@@ -3165,6 +3225,7 @@
       current: null
     };
   }
+
   function unstable_clear(callback) {
 
     var prevInteractions = interactionsRef.current;
@@ -3176,14 +3237,17 @@
       interactionsRef.current = prevInteractions;
     }
   }
+
   function unstable_getCurrent() {
     {
       return interactionsRef.current;
     }
   }
+
   function unstable_getThreadID() {
     return ++threadIDCounter;
   }
+
   function unstable_trace(name, timestamp, callback) {
     var threadID = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : DEFAULT_THREAD_ID;
 
@@ -3236,6 +3300,7 @@
 
     return returnValue;
   }
+
   function unstable_wrap(callback) {
     var threadID = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_THREAD_ID;
 
@@ -3344,6 +3409,7 @@
       }
     }
   }
+
   function unstable_unsubscribe(subscriber) {
     {
       subscribers.delete(subscriber);
@@ -3469,11 +3535,14 @@
   }
 
 
-
   var SchedulerTracing = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    get __interactionsRef () { return interactionsRef; },
-    get __subscriberRef () { return subscriberRef; },
+    get __interactionsRef() {
+      return interactionsRef;
+    },
+    get __subscriberRef() {
+      return subscriberRef;
+    },
     unstable_clear: unstable_clear,
     unstable_getCurrent: unstable_getCurrent,
     unstable_getThreadID: unstable_getThreadID,
@@ -3516,9 +3585,9 @@
     }
   }
 
-  var createElement$1 =  createElementWithValidation ;
-  var cloneElement$1 =  cloneElementWithValidation ;
-  var createFactory =  createFactoryWithValidation ;
+  var createElement$1 = createElementWithValidation;
+  var cloneElement$1 = cloneElementWithValidation;
+  var createFactory = createFactoryWithValidation;
   var Children = {
     map: mapChildren,
     forEach: forEachChildren,

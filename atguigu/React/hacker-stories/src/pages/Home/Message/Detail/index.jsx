@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import qs from "qs";
+import React, { Component } from 'react';
+import qs from 'qs';
 
 const DetailData = [
-  { id: "01", content: "你好中国" },
-  { id: "02", content: "你好英国" },
-  { id: "03", content: "你好美国" },
+  { id: '01', content: '你好中国' },
+  { id: '02', content: '你好英国' },
+  { id: '03', content: '你好美国' },
 ];
 
 export default class Detail extends Component {
@@ -19,9 +19,9 @@ export default class Detail extends Component {
       }) || {};
     return (
       <ul>
-        <li>Id: {id}</li>
-        <li>Tilte: {title}</li>
-        <li>Content: {findResult.content}</li>
+        <li>Id: { id }</li>
+        <li>Tilte: { title }</li>
+        <li>Content: { findResult.content }</li>
       </ul>
     );
   }
