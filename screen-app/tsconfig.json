@@ -9,17 +9,18 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
-    "useDefineForClassFields": true,
     "sourceMap": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
+    "noImplicitAny": false,
     "types": [
       "webpack-env"
     ],
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "tslib" : ["node_modules/tslib/tslib.d.ts"]
     },
     "lib": [
       "esnext",
@@ -33,9 +34,11 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "axios.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/utils/esresize.js"
   ]
 }

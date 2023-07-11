@@ -18,17 +18,31 @@ module.exports = {
   },
   //scss全局变量 change-mark
   css: {
-    // css预设器配置项
+    // 启用 CSS modules
+    requireModuleExtension: false,
+    // 是否使用css分离插件
+    extract: true,
+    // 开启 CSS source maps，一般不建议开启
+    sourceMap: false,
     loaderOptions: {
-      sass:{
-        additionalData: `@import "@/scss/variables.scss";`,
+      scss: {
+        prependData: `@import "@/scss/variables.scss";`,
       },
-      css:{
-        module:{
-          auto:()=>true
-        }
+      //postcss配置
+      postcss: {
+        plugins: [
+          require('postcss-pxtorem')({
+                rootValue: 1920,
+                unitPrecision: 5,
+                propList: ['*'],
+                selectorBlackList: ['%','el-','cus-',"top-bar"],//这些样式不转为rem "home-title-box"
+                replace: true,
+                mediaQuery: false,
+                minPixelValue: 12,
+                exclude:function (file) { return ['node_modules'].some(s=> file.includes(s));} ///node_modules/ig
+          }),
+        ]
       }
     },
-    // requireModuleExtension: true
   },
 };
