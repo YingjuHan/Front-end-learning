@@ -1,7 +1,6 @@
 .DS_Store
 /dist
 /node_modules/.cache
-/node_modules/.cache/ts-loader
 # local env files
 .env.local
 .env.*.local
