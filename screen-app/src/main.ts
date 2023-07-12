@@ -1,4 +1,5 @@
 import "./scss/element-variables.scss";
+import "normalize.css";
 import { createApp } from "vue";
 
 import { loadAllPlugins } from "./plugins";
