@@ -1,4 +1,5 @@
 import "./scss/element-variables.scss";
+import "./assets/font/font.scss"
 import "normalize.css";
 import { createApp } from "vue";
 
