@@ -9,7 +9,6 @@
     overflow: hidden;
     font-size: 16px;
 }
-
 html,
 body,
 #app {
