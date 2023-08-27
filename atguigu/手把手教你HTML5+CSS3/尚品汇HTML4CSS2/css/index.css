@@ -110,21 +110,60 @@
     height: 458px;
     background-color: #F4F4F4;
     font-size: 14px;
+    position: relative;
 }
 
 .main-content .slide-nav li {
     height: 28px;
     line-height: 28px;
     padding-left: 16px;
-    
 }
 
 .main-content .slide-nav li:hover {
     background-color: #DD302D;
 }
+.main-content .slide-nav li:hover .second-menu {
+    display: block;
+}
 
-.main-content .slide-nav li:hover a {
+.main-content .slide-nav li:hover>a {
     color: white;
+}
+
+.main-content .slide-nav .second-menu {
+    width: 680px;
+    height: 458px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 190px;
+    padding-left: 20px;
+    display: none;
+}
+
+.main-content .slide-nav .second-menu dl {
+    height: 36px;
+    line-height: 36px;
+}
+
+.main-content .slide-nav .second-menu dl:first-child {
+    margin-top: 10px;
+}
+
+.main-content .slide-nav .second-menu dt {
+    float: left;
+    width: 70px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.main-content .slide-nav .second-menu dd {
+    float: left;
+}
+
+.main-content .slide-nav .second-menu dd a {
+    padding: 0 10px;
+    border-left: 1px solid #666666;
 }
 
 .main-content .banner {
