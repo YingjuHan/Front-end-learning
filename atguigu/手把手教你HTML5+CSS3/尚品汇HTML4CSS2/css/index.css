@@ -7,7 +7,7 @@
 /* #region顶部导航条start */
 .topbar {
     height: 30px;
-    background-color: #ECECEC;
+    background-color: #ececec;
 }
 .welcome {
     height: 30px;
@@ -15,7 +15,8 @@
     font-size: 0;
     color: #666666;
 }
-.welcome span, .welcome a {
+.welcome span,
+.welcome a {
     font-size: 12px;
 }
 .welcome .hello {
@@ -60,14 +61,14 @@
 .header .search input {
     width: 508px;
     height: 34px;
-    border: 1px solid #DD302D;
+    border: 1px solid #dd302d;
 }
 .header .search button {
     width: 80px;
     height: 36px;
-    background-color: #DD302D;
+    background-color: #dd302d;
     vertical-align: top;
-    background-image: url('../images/serch_icon.png');
+    background-image: url("../images/serch_icon.png");
     background-repeat: no-repeat;
     background-position: 28px 6px;
     /* background-position: center; */
@@ -77,14 +78,14 @@
 /* #region主导航区start */
 .main-nav {
     height: 48px;
-    border-bottom: 1px solid #DD302D;
+    border-bottom: 1px solid #dd302d;
 }
 
 .main-nav .all-types {
     width: 190px;
     height: 48px;
     line-height: 48px;
-    background-color: #DD302D;
+    background-color: #dd302d;
     color: white;
     text-align: center;
     font-size: 16px;
@@ -108,7 +109,7 @@
 .main-content .slide-nav {
     width: 190px;
     height: 458px;
-    background-color: #F4F4F4;
+    background-color: #f4f4f4;
     font-size: 14px;
     position: relative;
 }
@@ -120,13 +121,13 @@
 }
 
 .main-content .slide-nav li:hover {
-    background-color: #DD302D;
+    background-color: #dd302d;
 }
 .main-content .slide-nav li:hover .second-menu {
     display: block;
 }
 
-.main-content .slide-nav li:hover>a {
+.main-content .slide-nav li:hover > a {
     color: white;
 }
 
@@ -169,13 +170,40 @@
 .main-content .banner {
     width: 690px;
     height: 458px;
-    background-color: green;
     margin: 0 10px;
 }
 
 .main-content .slide-other {
     width: 290px;
     height: 458px;
-    background-color: orange;
+}
+
+.slide-other .message {
+    width: 260px;
+    height: 156px;
+    padding: 0 14px;
+    border: 1px solid #d9d9d9;
+}
+
+.slide-other .message .title {
+    height: 38px;
+    line-height: 38px;
+    border: 1px solid #d9d9d9;
+}
+.slide-other .message .title span {
+    font-size: 14px;
+}
+.slide-other .message .title a {
+    font-size: 12px;
+}
+.slide-other .message-list li {
+    height: 26px;
+    line-height: 26px;
+}
+.slide-other .other-nav {
+    margin-top: 10px;
+    width: 290px;
+    height: 290px;
+    background-color: gray;
 }
 /* #endregion主要内容区end */
