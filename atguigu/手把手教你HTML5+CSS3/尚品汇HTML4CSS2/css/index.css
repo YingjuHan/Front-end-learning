@@ -368,3 +368,65 @@
     border-bottom: 1px solid #e2e2e2;
 }
 /* #endregion楼层end */
+
+/* #region页脚start */
+.footer {
+    height: 440px;
+    background-color: #483E3E;
+    margin-top: 48px;
+}
+.links-list {
+    float: left;
+    width: 190px;
+    height: 176px;
+    margin-top: 48px;
+    margin-right: 10px;
+}
+.links-list:last-child {
+    margin-right: 0;
+}
+
+.links-list li a {
+    color: white;
+    font-size: 14px;
+}
+.line {
+    margin-top: 22px;
+    height: 1px;
+    background-color: #584d4d;
+}
+.bottom-links {
+    text-align: center;
+    margin-top: 47px;
+}
+.bottom-links-list {
+    display: inline-block;
+}
+
+.bottom-links-list li {
+    float: left;
+}
+
+.bottom-links-list li a {
+    padding: 0 26px;
+    color: white;
+    border-right: 1px solid white;
+}
+.bottom-links-list li:first-child a {
+    padding-left: 0;
+}
+.bottom-links-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+
+.bottom-links-list li:first a {
+    padding-left: 0;
+    text-align: center;
+}
+
+.copyright {
+    color: white;
+    margin-top: 10px;
+}
+/* #endregion页脚end */
